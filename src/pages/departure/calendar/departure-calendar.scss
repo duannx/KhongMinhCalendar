@@ -1,0 +1,117 @@
+page-departure-calendar {
+    ion-content {
+        background-image: url('../assets/departure/background/background-home.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    $calendar-radius: 10px;
+    .calendar-block {
+        width: 90%;
+        margin-top: 20px;
+        border: solid 1px rgba(255, 255, 255, 0.5);
+        background: rgba(17, 34, 51, 0.5);
+        padding: 1px 0 0 1px; //for table border
+        border-radius: $calendar-radius;
+    }
+    .col {
+        border: solid 1px rgba(255, 255, 255, 0.5);
+        //for table border
+        margin-left: -1px;
+        margin-top: -1px;
+        padding: 0;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+    }
+    .calendar-th {
+        height: $line-height * 1.5;
+        .col {
+            font-weight: bold;
+            border: none;
+            background-color: rgba(197, 161, 150, 0.5);
+            border-top: solid 1px rgba(255, 255, 255, 0.5);
+            margin-left: 0;
+            line-height: $line-height * 1.5;
+        }
+        >.col:first-child {
+            background-color: rgba(187, 122, 191, 0.5);
+            border-left: solid 1px rgba(255, 255, 255, 0.5);
+            margin-left: -1px;
+            border-top-left-radius: $calendar-radius;
+        }
+        >.col:nth-child(2) {
+            margin-left: -1px;
+        }
+        >.col:last-child {
+            background-color: rgba(21, 214, 197, 0.5);
+            border-right: solid 1px rgba(255, 255, 255, 0.5);
+            border-top-right-radius: $calendar-radius;
+        }
+    }
+    .calendar-day {
+        flex-wrap: wrap;
+        .col {
+            line-height: $line-height;
+            padding-right: 5px;
+            width: 14.2857142857%;
+            flex-basis: initial;
+            height: $line-height * 2;
+        }
+        .solar-date {
+            width: 100%;
+            display: block;
+            font-size: 1em;
+        }
+        .lunar-date {
+            float: right;
+            font-size: 0.8em;
+        }
+    }
+    .status {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: transparent;
+        vertical-align: middle;
+    }
+    .status-1 {
+        background-color: #fe696a;
+    }
+    .status-2 {
+        background-color: #123;
+    }
+    .round-bottom-left {
+        border-bottom-left-radius: 10px;
+    }
+    .round-bottom-right {
+        border-bottom-right-radius: 10px;
+    }
+    .zodiac-block {
+        display: flex;
+        justify-content: center;
+        color: #FFF;
+        margin-top: 20px;
+        // background: rgba(17, 34, 51, 0.5);
+        background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), rgba(17, 34, 51, 0.7), rgba(255, 255, 255, 0));
+        /* Safari 5.1-6.0 */
+        div {
+            margin: 5px;
+        }
+    }
+    .zodiac-comment {
+        color: #FFF;
+        // background: rgba(17, 34, 51, 0.5);
+        background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), rgba(17, 34, 51, 0.7), rgba(255, 255, 255, 0));
+        padding: 5%;
+        .day-name {
+            width: 100%;
+            display: block;
+        }
+        .day-comment {
+            font-size: .8em;
+        }
+    }
+}

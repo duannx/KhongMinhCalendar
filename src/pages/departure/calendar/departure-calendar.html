@@ -1,0 +1,46 @@
+<ion-content>
+    <div class="height-16"></div>
+    <ion-grid class="calendar-block">
+        <ion-row class="calendar-th">
+            <ion-col *ngFor="let day of dayOfWeek"><span nowrap>{{day}}</span></ion-col>
+        </ion-row>
+        <ion-row class="calendar-day">
+            <ion-col *ngFor="let departure of calendar.days; let i = index" [class.round-bottom-left]="i+7 == calendar.days.length " [class.round-bottom-right]="i == calendar.days.length - 1">
+                <div *ngIf="departure">
+                    <span class="solar-date">{{getDate(departure.date)}}</span>
+                    <span class="status status-{{departure.zodiacStatus}}"></span>
+                    <span class="lunar-date" *ngIf="departure.lunarDate != 1">{{departure.lunarDate}}  </span>
+                    <span class="lunar-date" *ngIf="departure.lunarDate == 1">{{departure.lunarDate+'/'+departure.lunarMonth}}</span>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="zodiac-block">
+        <div class="positive">
+            <span class="status status-1"></span>
+            <span>Hoàng Đạo</span>
+        </div>
+        <div class="negative">
+            <span class="status status-2"></span>
+            <span>Hắc Đạo</span>
+        </div>
+    </div>
+    <div class="zodiac-comment">
+        <span class="day-name">Ngày Bạch Hổ Túc </span>
+        <span class="day-comment">Cấm đi xa, làm việc gì cũng không được thành công</span>
+    </div>
+</ion-content>
+<div class="a1-container-top a1-z-10">
+    <!-- <div style="height:20px"></div> -->
+    <div class="a-header a3-container a3-justify-start a3-items-center">
+        <div class="a3-container a-header-button">
+            <!-- <ion-icon name="ios-home-outline" style="font-size:8vw; color: white;"></ion-icon> -->
+            <img src="assets/departure/btn_notification.png">
+        </div>
+        <div class="a-header-title a3-flex-1" (tap)="pickSolarDate()"> <strong>&lt;</strong> Tháng {{calendar.month + 1}}/{{calendar.year}} <strong>&gt;</strong></div>
+
+        <div class="a3-container a-header-button" (tap)="pickSolarDate()">
+            <img src="assets/departure/btn_calendar.png">
+        </div>
+    </div>
+</div>

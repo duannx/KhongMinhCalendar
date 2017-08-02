@@ -1,0 +1,227 @@
+page-departure-tabs {
+    background-image: url('../assets/departure/background/background-home.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    ion-content {
+        background: transparent !important;
+        background-image: none !important;
+    }
+    .nav-decor {
+        background: transparent !important;
+    }
+    .tabbar.show-tabbar {
+        height: 12vh;
+        background-image: url('../assets/departure/bot_bar.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        font-size: 100%;
+        opacity: 0.8;
+        background-color: transparent !important;
+    }
+    .tabbar,
+    .tabs-ios {
+        .tab-button-icon {
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 32px;
+            width: 25px;
+            margin-bottom: 5px;
+            margin-top: 1px;
+            &:before {
+                display: none;
+            }
+        }
+    }
+    .tabs-md {
+        .tab-button-icon {
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 35px;
+            width: 38px;
+            margin-bottom: 2px;
+            margin-top: 1px;
+            &:before {
+                display: none;
+            }
+        }
+    }
+    //icon customize
+    // .ion-ios-day-outline,
+    // .ion-ios-day,.ion-md-day,.ion-md-day-outline {
+    // content: url('../assets/departure/btn_day_off.png');
+    // }
+    // .ion-ios-month-outline,
+    // .ion-ios-month,.ion-md-month,.ion-md-month-outline {
+    // content: url('../assets/departure/btn_month_off.png');
+    // }
+    // .ion-ios-horoscope-outline,
+    // .ion-ios-horoscope,.ion-md-horoscope,.ion-md-horoscope-outline {
+    // content: url('../assets/departure/btn_horoscope_off.png');
+    // }
+    // .ion-ios-exchange-outline,
+    // .ion-ios-exchange,.ion-md-exchange,.ion-md-exchange-outline {
+    // content: url('../assets/departure/btn_switchday_off.png');
+    // }
+    // .ion-ios-more-outline,
+    // .ion-ios-more,.ion-md-more,.ion-md-more-outline {
+    // content: url('../assets/departure/btn_more_off.png');
+    // }
+    //active and inactive icon for ios
+    .tabs-ios {
+        a[aria-selected=false] {
+            .tab-button-icon[ng-reflect-name=day],
+            .tab-button-icon[aria-label="day outline"] {
+                background-image: url(../assets/departure/btn_day_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=month],
+            .tab-button-icon[aria-label="month outline"] {
+                background-image: url(../assets/departure/btn_month_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=horoscope],
+            .tab-button-icon[aria-label="horoscope outline"] {
+                background-image: url(../assets/departure/btn_horoscope_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=exchange],
+            .tab-button-icon[aria-label="exchange outline"] {
+                background-image: url(../assets/departure/btn_switchday_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=more],
+            .tab-button-icon[aria-label="more outline"] {
+                background-image: url(../assets/departure/btn_more_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-text {
+                font-size: 120%;
+                color: #b9b6b6;
+                margin: auto;
+            }
+        }
+        a[aria-selected=true] {
+            .tab-button-icon[ng-reflect-name=day],
+            .tab-button-icon[aria-label=day] {
+                background-image: url(../assets/departure/btn_day_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=month],
+            .tab-button-icon[aria-label=month] {
+                background-image: url(../assets/departure/btn_month_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=horoscope],
+            .tab-button-icon[aria-label=horoscope] {
+                background-image: url(../assets/departure/btn_horoscope_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=exchange],
+            .tab-button-icon[aria-label=exchange] {
+                background-image: url(../assets/departure/btn_switchday_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=more],
+            .tab-button-icon[aria-label=more] {
+                background-image: url(../assets/departure/btn_more_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-text {
+                font-size: 130%;
+                color: white;
+                margin: auto;
+                font-weight: 400;
+            }
+        }
+    }
+    //active and inactive icon for android
+    .tabs-md {
+        a[aria-selected=false] {
+            .tab-button-icon[ng-reflect-name=day],
+            .tab-button-icon[aria-label="day outline"] {
+                background-image: url(../assets/departure/btn_day_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=month],
+            .tab-button-icon[aria-label="month outline"] {
+                background-image: url(../assets/departure/btn_month_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=horoscope],
+            .tab-button-icon[aria-label="horoscope outline"] {
+                background-image: url(../assets/departure/btn_horoscope_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=exchange],
+            .tab-button-icon[aria-label="exchange outline"] {
+                background-image: url(../assets/departure/btn_switchday_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=more],
+            .tab-button-icon[aria-label="more outline"] {
+                background-image: url(../assets/departure/btn_more_off.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-text {
+                font-size: 85%;
+                color: #b9b6b6;
+                margin: auto;
+            }
+        }
+        a[aria-selected=true] {
+            .tab-button-icon[ng-reflect-name=day],
+            .tab-button-icon[aria-label=day] {
+                background-image: url(../assets/departure/btn_day_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=month],
+            .tab-button-icon[aria-label=month] {
+                background-image: url(../assets/departure/btn_month_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=horoscope],
+            .tab-button-icon[aria-label=horoscope] {
+                background-image: url(../assets/departure/btn_horoscope_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=exchange],
+            .tab-button-icon[aria-label=exchange] {
+                background-image: url(../assets/departure/btn_switchday_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-icon[ng-reflect-name=more],
+            .tab-button-icon[aria-label=more] {
+                background-image: url(../assets/departure/btn_more_on.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .tab-button-text {
+                font-size: 90%;
+                color: white;
+                margin: auto;
+                font-weight: 400;
+            }
+        }
+    }
+}
