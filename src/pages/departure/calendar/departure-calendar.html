@@ -1,34 +1,38 @@
 <ion-content>
-    <div class="height-16"></div>
-    <ion-grid class="calendar-block">
-        <ion-row class="calendar-th">
-            <ion-col *ngFor="let day of dayOfWeek"><span nowrap>{{day}}</span></ion-col>
-        </ion-row>
-        <ion-row class="calendar-day">
-            <ion-col *ngFor="let departure of calendar.days; let i = index" [class.round-bottom-left]="i+7 == calendar.days.length " [class.round-bottom-right]="i == calendar.days.length - 1">
-                <div *ngIf="departure">
-                    <span class="solar-date">{{getDate(departure.date)}}</span>
-                    <span class="status status-{{departure.zodiacStatus}}"></span>
-                    <span class="lunar-date" *ngIf="departure.lunarDate != 1">{{departure.lunarDate}}  </span>
-                    <span class="lunar-date" *ngIf="departure.lunarDate == 1">{{departure.lunarDate+'/'+departure.lunarMonth}}</span>
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-    <div class="zodiac-block">
-        <div class="positive">
-            <span class="status status-1"></span>
-            <span>Hoàng Đạo</span>
+    <div class="dp-content">
+        <div class="height-16"></div>
+        <ion-grid class="calendar-block" (swipe)="swipe($event)">
+            <ion-row class="calendar-th">
+                <ion-col *ngFor="let day of dayOfWeek"><span nowrap>{{day}}</span></ion-col>
+            </ion-row>
+            <ion-row class="calendar-day">
+                <ion-col (click)="selectDeparture(departure)" [class.today]="departure && departure.dateString == currentDate.dateString" [class.selected]="departure &&  departure.dateString == selectedDate.dateString" *ngFor="let departure of calendar.days; let i = index"
+                    [class.round-bottom-left]="i+7 == calendar.days.length " [class.round-bottom-right]="i == calendar.days.length - 1">
+                    <div *ngIf="departure">
+                        <span class="solar-date">{{getDate(departure.date)}}</span>
+                        <span class="status status-{{departure.zodiacStatus}}"></span>
+                        <span class="lunar-date" *ngIf="departure.lunarDate != 1">{{departure.lunarDate}}  </span>
+                        <span class="lunar-date" *ngIf="departure.lunarDate == 1">{{departure.lunarDate+'/'+departure.lunarMonth}}</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div class="zodiac-block" nowrap>
+            <div class="positive">
+                <span class="status status-1"></span>
+                <span nowrap>Hoàng Đạo</span>
+            </div>
+            <div class="negative" nowrap>
+                <span class="status status-2"></span>
+                <span nowrap>Hắc Đạo</span>
+            </div>
         </div>
-        <div class="negative">
-            <span class="status status-2"></span>
-            <span>Hắc Đạo</span>
+        <div class="zodiac-comment">
+            <span class="day-name" nowrap>{{selectedDate.nameOfDay}} </span>
+            <span class="day-comment" *ngIf="selectedDate.comment">" {{selectedDate.comment}} "</span>
         </div>
     </div>
-    <div class="zodiac-comment">
-        <span class="day-name">Ngày Bạch Hổ Túc </span>
-        <span class="day-comment">Cấm đi xa, làm việc gì cũng không được thành công</span>
-    </div>
+
 </ion-content>
 <div class="a1-container-top a1-z-10">
     <!-- <div style="height:20px"></div> -->
@@ -37,10 +41,38 @@
             <!-- <ion-icon name="ios-home-outline" style="font-size:8vw; color: white;"></ion-icon> -->
             <img src="assets/departure/btn_notification.png">
         </div>
-        <div class="a-header-title a3-flex-1" (tap)="pickSolarDate()"> <strong>&lt;</strong> Tháng {{calendar.month + 1}}/{{calendar.year}} <strong>&gt;</strong></div>
+        <div class="a-header-title a3-flex-1" (click)="pickSolarDate($event)"> <strong>&lt;</strong> Tháng {{calendar.month + 1}}/{{calendar.year}} <strong>&gt;</strong></div>
 
-        <div class="a3-container a-header-button" (tap)="pickSolarDate()">
+        <div class="a3-container a-header-button" (click)="pickSolarDate($event)">
             <img src="assets/departure/btn_calendar.png">
+        </div>
+    </div>
+</div>
+<div class="month-picker" id="month-picker1" *ngIf="showDatePicker">
+    <div class="month-picker-backdrop" (click)="hideDatePicker($event)"></div>
+    <div class="month-picker-content animated fadeIn">
+        <div class="year">
+            <span class="month-picker-button prev-button" (click)="prevYear()">
+                <i class="fa fa-caret-left" aria-hidden="true"></i>
+            </span>
+            <span>{{calendar.year}}</span>
+            <span class="month-picker-button next-button" (click)="nextYear()">
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div class="month-group">
+            <div class="month" [class.bordered]="calendar.month == 0" (click)="changeMonth(1, $event)" value="1">1</div>
+            <div class="month" [class.bordered]="calendar.month == 1" (click)="changeMonth(2, $event)" value="2">2</div>
+            <div class="month" [class.bordered]="calendar.month == 2" (click)="changeMonth(3, $event)" value="3">3</div>
+            <div class="month" [class.bordered]="calendar.month == 3" (click)="changeMonth(4, $event)" value="4">4</div>
+            <div class="month" [class.bordered]="calendar.month == 4" (click)="changeMonth(5, $event)" value="5">5</div>
+            <div class="month" [class.bordered]="calendar.month == 5" (click)="changeMonth(6, $event)" value="6">6</div>
+            <div class="month" [class.bordered]="calendar.month == 6" (click)="changeMonth(7, $event)" value="7">7</div>
+            <div class="month" [class.bordered]="calendar.month == 7" (click)="changeMonth(8, $event)" value="8">8</div>
+            <div class="month" [class.bordered]="calendar.month == 8" (click)="changeMonth(9, $event)" value="9">9</div>
+            <div class="month" [class.bordered]="calendar.month == 9" (click)="changeMonth(10, $event)" value="10">10</div>
+            <div class="month" [class.bordered]="calendar.month == 10" (click)="changeMonth(11, $event)" value="11">11</div>
+            <div class="month" [class.bordered]="calendar.month == 11" (click)="changeMonth(12, $event)" value="12">12</div>
         </div>
     </div>
 </div>

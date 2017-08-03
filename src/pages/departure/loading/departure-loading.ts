@@ -46,7 +46,7 @@ export class DepartureLoadingPage {
     this.getDeviceInfos();
 
     // Load những dữ liệu cần thiết, thiết lập các đối tượng cần thiết.
-    this.mDepartureModule.getData();
+    this.mDepartureModule.update();
     // sau khi load xong thì gọi hàm onLoadingDone
 
     setTimeout(() => {

@@ -18,7 +18,6 @@ export class Departure {
         let departureExchangeDay = new DepartureExchangeDay();
         this.date = new Date(date) || new Date();
         let params = [this.date.getDate(), this.date.getMonth() + 1, this.date.getFullYear()];
-        console.log("params", params)
         this.dateString = Utils.getViewDate(this.date);
         this.nameOfDay = nameOfDay || "";
         this.comment = comment || "";
@@ -27,6 +26,19 @@ export class Departure {
         this.canchiYear = departureExchangeDay.getSexagesimalCycleByYear(params[0], params[1], params[2]);
         this.canchiMonth = departureExchangeDay.getSexagesimalCycleByMonth(params[0], params[1], params[2]);
         this.canchiDay = departureExchangeDay.getSexagesimalCycleByDay(params[0], params[1], params[2]);
+    }
+    pair(departure: Departure) {
+        this.date = departure.date;
+        this.dateString = departure.dateString;
+        this.nameOfDay = departure.nameOfDay;
+        this.comment = departure.comment;
+        this.zodiacStatus = departure.zodiacStatus;
+        this.lunarDate = departure.lunarDate;
+        this.lunarMonth = departure.lunarMonth;
+        this.lunarYear = departure.lunarYear;
+        this.canchiYear = departure.canchiYear;
+        this.canchiMonth = departure.canchiMonth;
+        this.canchiDay = departure.canchiDay;
     }
 
 }

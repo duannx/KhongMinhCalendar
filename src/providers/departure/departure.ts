@@ -5,6 +5,7 @@ import { HttpService } from "../http-service";
 import { ResponseCode, RequestState, LoginStatus } from '../app-constant';
 import { DepartureLoadData } from './departure-loaddata';
 import { DepartureExchangeDay } from './departure-exchangeday';
+import { Departure } from './class/departure';
 import { Http, HttpModule } from '@angular/http';
 import { BACKGROUND } from './departure-background';
 import { BACKGROUNDCHANGE } from './departure-backgroundchange';
@@ -16,6 +17,7 @@ export class DepartureModule {
   private mDepartureLoadData: DepartureLoadData;
   private mDepartureExchangeDay: DepartureExchangeDay;
   private departureData: any;
+
   constructor(
     private mHttpService: HttpService,
     private http: Http) {
@@ -32,6 +34,11 @@ export class DepartureModule {
   public convertSolarToLunar(dd: any, mm: any, yy: any) {
     return this.mDepartureExchangeDay.convertSolar2Lunar(dd, mm, yy, 7);
   }
+
+  public update() {
+    this.getData();
+  }
+
   getData() {
     return new Promise((resolve, reject) => {
       if (this.departureData) resolve(this.departureData);
@@ -42,6 +49,29 @@ export class DepartureModule {
         });
       }
     });
+  }
+
+  updateDepartureInfo(departures: Array<Departure>) {
+    console.log("updateDepartureInfo", departures, this.departureData);
+    if (this.departureData)
+      departures.forEach(departure => {
+        if (departure) {
+          let data = this.getQuoteAndNameOfDay(departure.lunarDate, departure.lunarMonth);
+          departure.nameOfDay = data[0];
+          departure.comment = data[1];
+        }
+      });
+    else {
+      this.getData().then(() => {
+        departures.forEach(departure => {
+          if (departure) {
+            let data = this.getQuoteAndNameOfDay(departure.lunarDate, departure.lunarMonth);
+            departure.nameOfDay = data[0];
+            departure.comment = data[1];
+          }
+        });
+      })
+    }
   }
 
   //lấy thông tin về ngày xuất hành
@@ -67,7 +97,11 @@ export class DepartureModule {
     return this.mDepartureExchangeDay.getSexagesimalCycleByYear(dd, mm, yy);
   }
   //lấy tên ngày và lời khuyên cho ngày theo lịch khổng minh
-  public getQuoteAndNameOfDay(dd: any, mm: any, data: any) {
+  public getQuoteAndNameOfDay(dd: any, mm: any, data?: any) {
+    if (!data) {
+      data = this.departureData;
+    }
+    console.log("get quote",dd, mm, data);
     return this.mDepartureLoadData.getInfoDayInMonth(dd, mm, data);
   }
   //Tính ngày hoàng đạo, hắc đạo

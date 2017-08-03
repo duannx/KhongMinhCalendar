@@ -15,7 +15,6 @@ export class DepartureChangeDatePage {
     private navCtrl: NavController,
     private mDepartureModule: DepartureModule,
   ) {
-
-
+ 
   }
 }

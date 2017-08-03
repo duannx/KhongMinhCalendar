@@ -14,7 +14,7 @@ export class Calendar {
             this.setTime(month, year);
         }
     }
-    setTime(month: number, year: number) {
+    setTime(month: number, year: number) { 
         for (let i = 0; i < 42; i++) {
             this.days[i] = null;
         }
@@ -24,8 +24,7 @@ export class Calendar {
         let startDate = new Date(year + "-" + (month < 9 ? "0" + (month + 1) : (month + 1)) + '-01');
         let index = startDate.getDay();
         while (startDate.getMonth() == this.month) {
-            this.days[index] = new Departure(startDate);
-            console.log(this.days[index]);
+            this.days[index] = new Departure(startDate); 
             startDate.setDate(startDate.getDate() + 1);
             index++;
         }

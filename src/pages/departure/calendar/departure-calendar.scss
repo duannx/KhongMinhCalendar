@@ -11,19 +11,30 @@ page-departure-calendar {
         margin-top: 20px;
         border: solid 1px rgba(255, 255, 255, 0.5);
         background: rgba(17, 34, 51, 0.5);
-        padding: 1px 0 0 1px; //for table border
+        padding: 1px 0 0 1px;
+        /*for table border*/
         border-radius: $calendar-radius;
     }
     .col {
         border: solid 1px rgba(255, 255, 255, 0.5);
-        //for table border
+        /*for table border*/
         margin-left: -1px;
         margin-top: -1px;
         padding: 0;
         text-align: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         color: #FFF;
+        &.selected {
+            border: solid 2.5px;
+        }
+        &.today {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
     }
     .calendar-th {
         height: $line-height * 1.5;
@@ -51,11 +62,13 @@ page-departure-calendar {
         }
     }
     .calendar-day {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         .col {
             line-height: $line-height;
             padding-right: 5px;
             width: 14.2857142857%;
+            -ms-flex-preferred-size: initial;
             flex-basis: initial;
             height: $line-height * 2;
         }
@@ -90,28 +103,109 @@ page-departure-calendar {
         border-bottom-right-radius: 10px;
     }
     .zodiac-block {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         color: #FFF;
         margin-top: 20px;
-        // background: rgba(17, 34, 51, 0.5);
-        background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), rgba(17, 34, 51, 0.7), rgba(255, 255, 255, 0));
-        /* Safari 5.1-6.0 */
+        background: rgba(9, 15, 21, 0.7);
+        background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: -moz-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: -o-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: -ms-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        .status {
+            margin: 5px 10px;
+        }
         div {
             margin: 5px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
         }
     }
     .zodiac-comment {
         color: #FFF;
-        // background: rgba(17, 34, 51, 0.5);
-        background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), rgba(17, 34, 51, 0.7), rgba(255, 255, 255, 0));
+        background: rgba(44, 54, 64, 0.5);
+        background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: -moz-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: -o-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: -ms-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
         padding: 5%;
         .day-name {
             width: 100%;
             display: block;
+            margin-bottom: 10px;
         }
         .day-comment {
-            font-size: .8em;
+            font-size: .9em;
+            font-style: italic;
+        }
+    }
+    .month-picker {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 9999;
+        $rowHeight: 50px;
+        .month-picker-backdrop {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 34, 51, 0.5);
+            z-index: 10000;
+        }
+        .month-picker-content {
+            width: 80%;
+            height: $rowHeight * 3;
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            z-index: 10001;
+            background-color: rgba(17, 34, 51, 0.9);
+            border: solid 1px #FFF;
+            color: #FFF;
+        }
+        .month-group {
+            padding: 0 3px;
+            width: 100%;
+            height: $rowHeight * 2;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .year {
+            width: 100%;
+            height: $rowHeight;
+            line-height: $rowHeight;
+            text-align: center;
+            border-bottom: 1px solid
+        }
+        .month {
+            width: 16.6666666666%;
+            height: $rowHeight - 6px;
+            line-height: $rowHeight - 6px;
+            margin: 3px 0;
+            text-align: center;
+            &.bordered {
+                border: solid 1px rgba(255, 255, 255, 0.5);
+            }
+        }
+        .month-picker-button {
+            font-size: 1.2em;
+        }
+        .prev-button {
+            float: left;
+            margin-left: 20px;
+        }
+        .next-button {
+            float: right;
+            margin-right: 20px;
         }
     }
 }

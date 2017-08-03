@@ -32,7 +32,7 @@ export class AppMenu {
 })
 export class MyApp {
   // rootPage: any = "DepartureLoadingPage";
-  rootPage: any = "DepartureCalendarPage";
+  rootPage: any = "DepartureChangeDatePage";
   mMenuController: MenuController;
   mLotteryMenu: any = [];
 

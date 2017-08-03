@@ -275,11 +275,5 @@ export class DepartureHomePage {
       },
       err => console.log('Error occurred while getting date: ', err)
       );
-  }
-
-
-
-
-
-
+  } 
 }

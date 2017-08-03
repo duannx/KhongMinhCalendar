@@ -19,6 +19,7 @@ export class DepartureCalendarPage {
   public currentDate: Departure;
   //dữ liệu về ngày xuất hành
   departureData: any;
+  showDatePicker = false;
   constructor(
     private navParams: NavParams,
     private navCtrl: NavController,
@@ -28,7 +29,7 @@ export class DepartureCalendarPage {
     this.currentDate = new Departure(new Date());
     this.selectedDate = new Departure(new Date());
     this.calendar = new Calendar(this.currentDate.date.getMonth(), this.currentDate.date.getFullYear());
-    console.log("calendar", this.calendar, this.selectedDate);
+    console.log("calendar", this.calendar, this.selectedDate, this.currentDate);
     if (!this.departureData) {
       this.mDepartureModule.getData().then(
         data => {
@@ -36,38 +37,74 @@ export class DepartureCalendarPage {
         }, error => { }
       );
     }
+    this.mDepartureModule.updateDepartureInfo(this.calendar.days);
+    this.mDepartureModule.updateDepartureInfo([this.currentDate, this.selectedDate]);
     // this.getQuoteAndDayName(this.selectedDate);
   }
   //Load data
   onInputChange(month, year) {
     this.calendar.setTime(month, year);
+    this.mDepartureModule.updateDepartureInfo(this.calendar.days);
   }
 
   getDate(date: Date) {
     return date.getDate();
   }
+
   daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
   }
 
-
-  //lấy tên và lời khuyên cho ngày
-  getQuoteAndDayName(departure: Departure) {
-    let data = this.mDepartureModule.getQuoteAndNameOfDay(departure.lunarDate, departure.lunarMonth, this.departureData);
-    departure.nameOfDay = data[0].toString();
-    departure.comment = data[1].toString();
+  swipe(event) {
+    let direction = event.offsetDirection; //2 = swipe right to left; 4 = swipe left to right;
+    console.log(direction, this.calendar.month, this.calendar.year);
+    if (direction == 2) {
+      let month = this.calendar.month + 1;
+      let year = this.calendar.year;
+      if (month == 12) {
+        month = 0;
+        year++;
+      }
+      this.onInputChange(month, year);
+    }
+    if (direction == 4) {
+      let month = this.calendar.month - 1;
+      let year = this.calendar.year;
+      if (month == -1) {
+        month = 11;
+        year--;
+      }
+      this.onInputChange(month, year);
+    }
   }
 
-  pickSolarDate() {
-    this.datePicker.show({
-      date: new Date(),
-      mode: 'month'
-    }).then(
-      date => {
-        console.log("date", date);
-      },
-      err => console.log('Error occurred while getting date: ', err)
-      );
+  selectDeparture(departure) {
+    if (departure)
+      this.selectedDate = departure;
+  }
+
+  pickSolarDate(event) {
+    this.showDatePicker = true;
+    event.stopPropagation();
+  }
+  hideDatePicker(event) {
+    this.showDatePicker = false;
+    event.stopPropagation();
+  }
+  nextYear() {
+    this.onInputChange(this.calendar.month, this.calendar.year + 1);
+  }
+  prevYear() {
+    this.onInputChange(this.calendar.month, this.calendar.year - 1);
+  }
+
+  changeMonth(month, event) {
+    this.onInputChange(month - 1, this.calendar.year);
+    // event.target.classList.add('bordered');
+    // setTimeout(() => {
+    //   this.showDatePicker = false;
+    //   event.target.classList.remove('bordered');
+    // }, 500);
   }
 
 }
