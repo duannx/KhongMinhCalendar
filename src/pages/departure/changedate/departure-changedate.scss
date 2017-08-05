@@ -4,6 +4,9 @@ page-departure-changedate {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        .scroll-content {
+            background-color: rgba(17, 34, 51, 0.5);
+        }
     }
     $heiderHeight: 50px;
     $titleHeight: 30px;
@@ -39,16 +42,52 @@ page-departure-changedate {
             line-height: $titleHeight;
             text-align: center;
             text-transform: uppercase;
+            color: #FFF;
+            font-weight: bold;
         }
         .content {
             height: $rowHeight * 3;
             background: rgba(9, 15, 21, 0.7);
             background: -webkit-gradient( linear, left top, right top, right bottom, left bottom, from(rgba(9, 15, 21, 0.7)), color-stop(5%, rgba(255, 255, 255, 0)), color-stop(95%, rgba(255, 255, 255, 0)), to(rgba(9, 15, 21, 0.7)));
             background: linear-gradient( rgba(9, 15, 21, 0.7) 0%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgba(9, 15, 21, 0.7) 100%);
-            /* background: -moz-gradient(linear, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));*/
-            /* background: -o-gradient(linear, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));*/
-            /* background: -ms-gradient(linear, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));*/
-            /* background: gradient(linear, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));*/
+            overflow: auto;
+            .item {
+                display: flex;
+                width: 100%;
+                height: $rowHeight;
+                justify-content: space-around;
+                align-items: center;
+                color: #FFF;
+                span {
+                    display: block;
+                    width: 33.3333%;
+                    text-align: center;
+                    height: $rowHeight;
+                    line-height: $rowHeight;
+                }
+            }
+        }
+        .icon {
+            text-align: center;
+            font-size: 2em;
+            color: #FFF;
+            font-weight: normal;
+            padding: 5px;
+        }
+    }
+    .change-date-footer {
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        .button-detail {
+            margin: 0 auto;
+            border: solid 1px #FFF;
+            padding: 5px 10px;
+            border-radius: 10px;
+            color: #FFF;
+            font-size: .9em;
+            background-color: rgba( 33, 33, 33, .9);
         }
     }
 }
