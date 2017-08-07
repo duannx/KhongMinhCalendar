@@ -31,8 +31,8 @@ export class AppMenu {
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage: any = "DepartureLoadingPage";
-  rootPage: any = "DepartureChangeDatePage";
+  rootPage: any = "DepartureLoadingPage";
+  // rootPage: any = "DepartureChangeDatePage";
   mMenuController: MenuController;
   mLotteryMenu: any = [];
 

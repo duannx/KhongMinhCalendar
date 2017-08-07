@@ -91,7 +91,6 @@ export class DepartureExchangeDay {
     }
 
     getLeapMonthOffset(a11, timeZone) {
-
         var k, last, arc, i;
         k = parseInt(((a11 - 2415021.076998695) / 29.530588853 + 0.5).toString());
         last = 0;
