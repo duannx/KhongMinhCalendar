@@ -51,8 +51,7 @@ export class DepartureModule {
     });
   }
 
-  updateDepartureInfo(departures: Array<Departure>) {
-    console.log("updateDepartureInfo", departures, this.departureData);
+  updateDepartureInfo(departures: Array<Departure>) { 
     if (this.departureData)
       departures.forEach(departure => {
         if (departure) {
@@ -100,8 +99,7 @@ export class DepartureModule {
   public getQuoteAndNameOfDay(dd: any, mm: any, data?: any) {
     if (!data) {
       data = this.departureData;
-    }
-    console.log("get quote",dd, mm, data);
+    } 
     return this.mDepartureLoadData.getInfoDayInMonth(dd, mm, data);
   }
   //Tính ngày hoàng đạo, hắc đạo

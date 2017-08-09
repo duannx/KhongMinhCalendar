@@ -47,56 +47,56 @@ page-departure-tabs {
             }
         }
     }
-    //icon customize
-    // .ion-ios-day-outline,
-    // .ion-ios-day,.ion-md-day,.ion-md-day-outline {
-    // content: url('../assets/departure/btn_day_off.png');
-    // }
-    // .ion-ios-month-outline,
-    // .ion-ios-month,.ion-md-month,.ion-md-month-outline {
-    // content: url('../assets/departure/btn_month_off.png');
-    // }
-    // .ion-ios-horoscope-outline,
-    // .ion-ios-horoscope,.ion-md-horoscope,.ion-md-horoscope-outline {
-    // content: url('../assets/departure/btn_horoscope_off.png');
-    // }
-    // .ion-ios-exchange-outline,
-    // .ion-ios-exchange,.ion-md-exchange,.ion-md-exchange-outline {
-    // content: url('../assets/departure/btn_switchday_off.png');
-    // }
-    // .ion-ios-more-outline,
-    // .ion-ios-more,.ion-md-more,.ion-md-more-outline {
-    // content: url('../assets/departure/btn_more_off.png');
-    // }
-    //active and inactive icon for ios
+    /*icon customize*/
+    /* .ion-ios-day-outline,*/
+    /* .ion-ios-day,.ion-md-day,.ion-md-day-outline {*/
+    /* content: url('../assets/departure/btn_day_off.png');*/
+    /* }*/
+    /* .ion-ios-month-outline,*/
+    /* .ion-ios-month,.ion-md-month,.ion-md-month-outline {*/
+    /* content: url('../assets/departure/btn_month_off.png');*/
+    /* }*/
+    /* .ion-ios-horoscope-outline,*/
+    /* .ion-ios-horoscope,.ion-md-horoscope,.ion-md-horoscope-outline {*/
+    /* content: url('../assets/departure/btn_horoscope_off.png');*/
+    /* }*/
+    /* .ion-ios-exchange-outline,*/
+    /* .ion-ios-exchange,.ion-md-exchange,.ion-md-exchange-outline {*/
+    /* content: url('../assets/departure/btn_switchday_off.png');*/
+    /* }*/
+    /* .ion-ios-more-outline,*/
+    /* .ion-ios-more,.ion-md-more,.ion-md-more-outline {*/
+    /* content: url('../assets/departure/btn_more_off.png');*/
+    /* }*/
+    /*active and inactive icon for ios*/
     .tabs-ios {
         a[aria-selected=false] {
             .tab-button-icon[ng-reflect-name=day],
-            .tab-button-icon[aria-label="day outline"] {
+            .tab-button-icon[aria-label*="day"] {
                 background-image: url(../assets/departure/btn_day_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=month],
-            .tab-button-icon[aria-label="month outline"] {
+            .tab-button-icon[ng-reflect-name*="month"],
+            .tab-button-icon[aria-label*="month"] {
                 background-image: url(../assets/departure/btn_month_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=horoscope],
-            .tab-button-icon[aria-label="horoscope outline"] {
+            .tab-button-icon[ng-reflect-name*="horoscope"],
+            .tab-button-icon[aria-label*="horoscope"] {
                 background-image: url(../assets/departure/btn_horoscope_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=exchange],
-            .tab-button-icon[aria-label="exchange outline"] {
+            .tab-button-icon[ng-reflect-name*="exchange"],
+            .tab-button-icon[aria-label*="exchange"] {
                 background-image: url(../assets/departure/btn_switchday_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=more],
-            .tab-button-icon[aria-label="more outline"] {
+            .tab-button-icon[ng-reflect-name*="more"],
+            .tab-button-icon[aria-label*="more"] {
                 background-image: url(../assets/departure/btn_more_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
@@ -108,32 +108,32 @@ page-departure-tabs {
             }
         }
         a[aria-selected=true] {
-            .tab-button-icon[ng-reflect-name=day],
-            .tab-button-icon[aria-label=day] {
+            .tab-button-icon[ng-reflect-name="day"],
+            .tab-button-icon[aria-label*="day"] {
                 background-image: url(../assets/departure/btn_day_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=month],
-            .tab-button-icon[aria-label=month] {
+            .tab-button-icon[ng-reflect-name*="month"],
+            .tab-button-icon[aria-label*="month"] {
                 background-image: url(../assets/departure/btn_month_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=horoscope],
-            .tab-button-icon[aria-label=horoscope] {
+            .tab-button-icon[ng-reflect-name*="horoscope"],
+            .tab-button-icon[aria-label*="horoscope"] {
                 background-image: url(../assets/departure/btn_horoscope_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=exchange],
-            .tab-button-icon[aria-label=exchange] {
+            .tab-button-icon[ng-reflect-name*="exchange"],
+            .tab-button-icon[aria-label*="exchange"] {
                 background-image: url(../assets/departure/btn_switchday_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=more],
-            .tab-button-icon[aria-label=more] {
+            .tab-button-icon[ng-reflect-name*="more"],
+            .tab-button-icon[aria-label*="more"] {
                 background-image: url(../assets/departure/btn_more_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
@@ -146,35 +146,35 @@ page-departure-tabs {
             }
         }
     }
-    //active and inactive icon for android
+    /*active and inactive icon for android*/
     .tabs-md {
         a[aria-selected=false] {
-            .tab-button-icon[ng-reflect-name=day],
-            .tab-button-icon[aria-label="day outline"] {
+            .tab-button-icon[ng-reflect-name*="day"],
+            .tab-button-icon[aria-label*="day"] {
                 background-image: url(../assets/departure/btn_day_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=month],
-            .tab-button-icon[aria-label="month outline"] {
+            .tab-button-icon[ng-reflect-name*="month"],
+            .tab-button-icon[aria-label*="month"] {
                 background-image: url(../assets/departure/btn_month_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=horoscope],
-            .tab-button-icon[aria-label="horoscope outline"] {
+            .tab-button-icon[ng-reflect-name*="horoscope"],
+            .tab-button-icon[aria-label*="horoscope outline"] {
                 background-image: url(../assets/departure/btn_horoscope_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=exchange],
-            .tab-button-icon[aria-label="exchange outline"] {
+            .tab-button-icon[ng-reflect-name*="exchange"],
+            .tab-button-icon[aria-label*="exchange"] {
                 background-image: url(../assets/departure/btn_switchday_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=more],
-            .tab-button-icon[aria-label="more outline"] {
+            .tab-button-icon[ng-reflect-name*="more"],
+            .tab-button-icon[aria-label*="more"] {
                 background-image: url(../assets/departure/btn_more_off.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
@@ -186,32 +186,32 @@ page-departure-tabs {
             }
         }
         a[aria-selected=true] {
-            .tab-button-icon[ng-reflect-name=day],
-            .tab-button-icon[aria-label=day] {
+            .tab-button-icon[ng-reflect-name*="day"],
+            .tab-button-icon[aria-label*="day"] {
                 background-image: url(../assets/departure/btn_day_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=month],
-            .tab-button-icon[aria-label=month] {
+            .tab-button-icon[ng-reflect-name*="month"],
+            .tab-button-icon[aria-label*="month"] {
                 background-image: url(../assets/departure/btn_month_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=horoscope],
-            .tab-button-icon[aria-label=horoscope] {
+            .tab-button-icon[ng-reflect-name*="horoscope"],
+            .tab-button-icon[aria-label*="horoscope"] {
                 background-image: url(../assets/departure/btn_horoscope_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=exchange],
-            .tab-button-icon[aria-label=exchange] {
+            .tab-button-icon[ng-reflect-name*="exchange"],
+            .tab-button-icon[aria-label*="exchange"] {
                 background-image: url(../assets/departure/btn_switchday_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
             }
-            .tab-button-icon[ng-reflect-name=more],
-            .tab-button-icon[aria-label=more] {
+            .tab-button-icon[ng-reflect-name*="more"],
+            .tab-button-icon[aria-label*="more"] {
                 background-image: url(../assets/departure/btn_more_on.png);
                 background-size: 100% 100%;
                 background-repeat: no-repeat;

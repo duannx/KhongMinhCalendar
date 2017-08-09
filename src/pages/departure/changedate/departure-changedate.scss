@@ -110,4 +110,48 @@ page-departure-changedate {
             background-color: rgba( 33, 33, 33, .9);
         }
     }
+    .zodiac-block {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        color: #FFF;
+        margin-top: 20px;
+        background: rgba(9, 15, 21, 0.7);
+        background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: -moz-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: -o-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: -ms-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        background: gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(9, 15, 21, 0.7)), to(rgba(255, 255, 255, 0)));
+        .status {
+            margin: 5px 10px;
+        }
+        div {
+            margin: 5px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    }
+    .zodiac-comment {
+        color: #FFF;
+        background: rgba(44, 54, 64, 0.5);
+        background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: -moz-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: -o-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: -ms-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        background: gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(44, 54, 64, 0.5)), to(rgba(255, 255, 255, 0)));
+        padding: 5%;
+        .day-name {
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .day-comment {
+            font-size: .9em;
+            font-style: italic;
+        }
+    }
 }

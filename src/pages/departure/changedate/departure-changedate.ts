@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DepartureModule } from '../../../providers/departure/departure';
 import { DepartureExchangeDay } from '../../../providers/departure/departure-exchangeday';
-
+import { Departure } from '../../../providers/departure/class/departure';
 
 @IonicPage()
 @Component({
@@ -24,6 +24,7 @@ export class DepartureChangeDatePage {
   lunarMonth = [];
   today: Date;
   todayInLunar: any;
+  public selectedDate: Departure;
   constructor(
     private navParams: NavParams,
     private navCtrl: NavController,
@@ -42,7 +43,8 @@ export class DepartureChangeDatePage {
       this.datas[2].push(i);
     }
     this.departureExchangeDay = new DepartureExchangeDay();
-
+    this.selectedDate = new Departure(new Date());
+    this.mDepartureModule.updateDepartureInfo([this.selectedDate]); 
   }
   ionViewDidEnter() {
     this.gotoToday();
@@ -129,6 +131,8 @@ export class DepartureChangeDatePage {
             let index = parseInt(lunarElm.getAttribute('index'));
             this.scrollToTop(lunarElm, (lunarDate[index % 3] - this.datas[index % 3][0]) * this.rowHeight, index);
           }
+          this.selectedDate = new Departure(new Date(solarDate[2] + "-" + solarDate[1] + "-" + solarDate[0]));
+          this.mDepartureModule.updateDepartureInfo([this.selectedDate]);
         }
 
       }
@@ -151,6 +155,8 @@ export class DepartureChangeDatePage {
             let index = parseInt(solarElm.getAttribute('index'));
             this.scrollToTop(solarElm, (solarDate[index % 3] - this.datas[index % 3][0]) * this.rowHeight, index);
           }
+          this.selectedDate = new Departure(new Date(solarDate[2] + "-" + solarDate[1] + "-" + solarDate[0]));
+          this.mDepartureModule.updateDepartureInfo([this.selectedDate]);
         }
       }
     }

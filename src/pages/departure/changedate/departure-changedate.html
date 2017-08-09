@@ -57,7 +57,12 @@
             </div>
         </div>
     </div>
-    <div class="change-date-footer">
-        <span class="button-detail">Chi tiết ngày</span>
+
+    <div class="zodiac-block" nowrap>
+        <div>Chi tiết ngày</div>
+    </div>
+    <div class="zodiac-comment">
+        <span class="day-name" nowrap>{{selectedDate.nameOfDay}} </span>
+        <span class="day-comment" *ngIf="selectedDate.comment">" {{selectedDate.comment}} "</span>
     </div>
 </ion-content>

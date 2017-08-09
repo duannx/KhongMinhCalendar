@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, Platform, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, Platform, NavController, NavParams, MenuController, ToastController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { DatePicker } from '@ionic-native/date-picker';
 import { AppInterface, ResponseCode } from '../../../providers/app-constant';
@@ -63,6 +63,7 @@ export class DepartureHomePage {
     private mDepartureModule: DepartureModule,
     private mMenuController: MenuController,
     private datePicker: DatePicker,
+    private toastCtrl: ToastController
   ) {
 
     this.solarDate = new Date().getDate();
@@ -89,8 +90,7 @@ export class DepartureHomePage {
           this.onLoadedData();
         }, error => { }
       );
-    }
-
+    } 
   }
 
   onLoadedData() {
@@ -244,6 +244,16 @@ export class DepartureHomePage {
         this.rotateRight();
       }
     }, false);
+
+    cube.addEventListener('touchcancel', (e) => {
+      var touchobj = e.changedTouches[0]; // reference first touch point for this event
+      dist = touchobj.clientX - startx;
+      if (dist > 20) {
+        this.rotateLeft();
+      } else if (dist < -20) {
+        this.rotateRight();
+      }
+    }, false);
   }
 
   // thay đổi background khi đổi ngày
@@ -254,7 +264,7 @@ export class DepartureHomePage {
     for (let i = 0; i < contentElms.length; i++) {
       let element = <HTMLElement>contentElms[i];
       element.style.backgroundImage = 'url(' + link + ')';
-    } 
+    }
   }
 
   //chọn ngày bất kỳ
@@ -275,5 +285,5 @@ export class DepartureHomePage {
       },
       err => console.log('Error occurred while getting date: ', err)
       );
-  } 
+  }
 }
